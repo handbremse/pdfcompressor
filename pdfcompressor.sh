@@ -1,14 +1,19 @@
 #!/bin/bash 
-echo PDF compressor by TG
-echo seaching for pdf files
+echo "PDF compressor by TG"
+echo "seaching for pdf files"
 mkdir compressed
-c=0
+alreadyCompressed=0
+compressed=0
 for i in ./*.pdf
 do 
-    if [ -f "$i" ]; 
+    if [ -f "./compressed/$i" ];
     then
-        ((c++))
-        echo "$c: compressing $i"
+        echo "$i is already compressed"
+        ((alreadyCompressed++))
+    elif [ -f "$i" ]; 
+    then
+        ((compressed++))
+        echo "$compressed: compressing $i"
         gs -q \
         -dNOPAUSE \
         -dBATCH \
@@ -28,10 +33,10 @@ do
         "$i"
     fi
 done
-if [ $c -eq 0 ];
+if [ $compressed -eq 0 ];
 then
     echo "!!!!There are no .pdfs in this folder"
-else
-    echo "All .pdfs were compressed!"
 fi
+echo "$compressed files are compressed!"
+echo "$alreadyCompressed files are already compressed!"
 exit
