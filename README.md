@@ -4,7 +4,9 @@ PDF files can often take up a lot of space, making it difficult to share or uplo
 
 ## Download and Install Ghostscript
 
-Before you can use the script, you need to download and install Ghostscript.
+Before you can use the script, you need to download and install Ghostscript https://www.ghostscript.com/.
+
+> Ghostscript is an interpreter for the PostScript® language and PDF files. It is available under either the GNU GPL Affero license or licensed for commercial use from Artifex Software, Inc. It has been under active development for over 30 years and has been ported to several different systems during this time. Ghostscript consists of a PostScript interpreter layer and a graphics library.
 
 ### Step 1: Install Brew
 
