@@ -1,12 +1,12 @@
 #!/bin/bash 
 echo "PDF compressor by TG"
 echo "seaching for pdf files"
-mkdir compressed
+mkdir "__compressed"
 alreadyCompressed=0
 compressed=0
 for i in ./*.pdf
 do 
-    if [ -f "./compressed/$i" ];
+    if [ -f "./__compressed/$i" ];
     then
         echo "$i is already compressed"
         ((alreadyCompressed++))
@@ -29,7 +29,7 @@ do
         -dGrayImageResolution=144 \
         -dMonoImageDownsampleType=/Bicubic \
         -dMonoImageResolution=144 \
-        -sOutputFile="./compressed/$i" \
+        -sOutputFile="./__compressed/$i" \
         "$i"
     fi
 done
